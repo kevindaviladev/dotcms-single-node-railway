@@ -6,8 +6,6 @@ services:
       POSTGRES_USER: 'dotcmsdbuser'
       POSTGRES_PASSWORD: 'password'
       POSTGRES_DB: 'dotcms'
-    volumes:
-      - dbdata:/var/lib/postgresql/data
     networks:
       - db_net
     healthcheck:
@@ -34,8 +32,6 @@ services:
     ports:
       - "9200:9200"
       - "9600:9600"
-    volumes:
-      - opensearch-data:/usr/share/opensearch/data
     networks:
       - opensearch-net
     deploy:
@@ -65,8 +61,6 @@ services:
     depends_on:
       - db
       - opensearch      
-    volumes:
-      - cms-shared:/data/shared
       #- ${HOME}/.dotcms/certs:/certs  # Can create cert with mkcert tool
       #- {license_local_path}/license.zip:/data/shared/assets/license.zip
     networks:
