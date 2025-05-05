@@ -74,8 +74,3 @@ services:
 networks:
   db_net:
   opensearch-net:
-
-volumes:
-  cms-shared:
-  dbdata:
-  opensearch-data:
